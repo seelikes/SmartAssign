@@ -1,12 +1,9 @@
 # SmartAssign
 a smarter version of Object.assign.
-deep assign when Object.assign is defined, otherwise, it will deep copy every property iterately.
+deep assign when Object.assign is defined, otherwise, it will deep copy every property iteratively.
 
 ## install
 npm install --save smart-assign
-
-## require and attention
-this library use es2015 to write its code, this may cause any project using this library also need to use es2015.
 
 ## usage example
 
