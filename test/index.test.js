@@ -4,7 +4,7 @@
 
 'use strict';
 
-import smartAssign from '../lib/index';
+let smartAssign = require('../lib/index');
 
 function closure() {
     let data = 'data';
@@ -86,5 +86,30 @@ describe('smartAssign', () => {
         expect(a.b).toBeInstanceOf(Array);
         expect(a.b.length).toBe(2);
         expect(a.b[1].b2).toBe('b2');
-    })
+    });
+
+    test('Array Assign to Array', () => {
+        let a = smartAssign(
+            {},
+            {
+                ar: [
+                    1,
+                    2,
+                    3,
+                ]
+            },
+            {
+                ar: [
+                    '1',
+                    2,
+                    '3456',
+                ]
+            }
+        );
+        console.log(a);
+        expect(a.ar).toBeInstanceOf(Array);
+        expect(a.ar[0]).toBe('1');
+        expect(a.ar[1]).toBe(2);
+        expect(a.ar[2]).toBe('3456');
+    });
 });
