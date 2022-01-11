@@ -112,4 +112,21 @@ describe('smartAssign', () => {
         expect(a.ar[1]).toBe(2);
         expect(a.ar[2]).toBe('3456');
     });
+
+    test('naked array assign to empty array', () => {
+        let a = smartAssign(
+            [],
+            [
+                1,
+                2,
+                3,
+            ]
+        )
+        console.log(a);
+        expect(a).toBeInstanceOf(Array);
+        expect(a).toHaveLength(3)
+        expect(a[0]).toBe(1);
+        expect(a[1]).toBe(2);
+        expect(a[2]).toBe(3);
+    })
 });
