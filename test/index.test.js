@@ -129,4 +129,20 @@ describe('smartAssign', () => {
         expect(a[1]).toBe(2);
         expect(a[2]).toBe(3);
     })
+
+    test('null assign to simple property', () => {
+        let a = smartAssign(
+            {
+                a: 'a',
+                b: 1,
+            },
+            {
+                a: null,
+                b: null,
+            }
+        )
+        console.log(a)
+        expect(a).toHaveProperty('a', null)
+        expect(a).toHaveProperty('b', null)
+    })
 });
