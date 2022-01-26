@@ -145,4 +145,19 @@ describe('smartAssign', () => {
         expect(a).toHaveProperty('a', null)
         expect(a).toHaveProperty('b', null)
     })
+
+    test('date assign', () => {
+        const oldDate = new Date()
+        let a = smartAssign(
+            {
+                date: oldDate,
+            },
+            {
+                date: new Date(),
+            }
+        )
+        console.log(a)
+        expect(a.date).toBeDefined()
+        expect(a.date).toBeInstanceOf(Date)
+    })
 });
