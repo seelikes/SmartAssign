@@ -34,3 +34,6 @@ npm install --save smart-assign
         }  
     ); 
 </code>
+
+## tips
+Objects without prototype can not be copied, can not be assigned, thus it will never change as the first parameter, and never be copied as other parameters
