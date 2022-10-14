@@ -160,4 +160,36 @@ describe('smartAssign', () => {
         expect(a.date).toBeDefined()
         expect(a.date).toBeInstanceOf(Date)
     })
+
+
+    test('objects without prototype', () => {
+        const oldData = Object.create(null, {
+            a: {
+                value: 'ha ha',
+            }
+        })
+        console.log('oldData: %o', oldData)
+        const newData = Object.create(null, {
+            a: {
+                value: 'ah ah',
+            }
+        })
+        console.log('newData: %o', newData)
+        const curlyBracesLead = smartAssign(
+            {},
+            oldData,
+            newData
+        )
+        console.log('curlyBracesLead: %o', curlyBracesLead)
+        expect(oldData.a).toBe('ha ha')
+        // Objects without prototype can not be copied
+        expect(curlyBracesLead.a).toBe(undefined)
+
+        const new2Old = smartAssign(
+            oldData,
+            newData
+        )
+        // Objects without prototype can not be copied
+        expect(new2Old.a).toBe('ha ha')
+    })
 });
