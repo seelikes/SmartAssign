@@ -146,6 +146,18 @@ describe('smartAssign', () => {
         expect(a).toHaveProperty('b', null)
     })
 
+    test('undefined assign to curly braces', () => {
+        let a = smartAssign(
+            {},
+            undefined,
+            {
+                a: 'a',
+            }
+        )
+        console.log(a)
+        expect(a).toHaveProperty('a', 'a')
+    })
+
     test('date assign', () => {
         const oldDate = new Date()
         let a = smartAssign(
