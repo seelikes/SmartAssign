@@ -161,7 +161,6 @@ describe('smartAssign', () => {
         expect(a.date).toBeInstanceOf(Date)
     })
 
-
     test('objects without prototype', () => {
         const oldData = Object.create(null, {
             a: {
