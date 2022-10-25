@@ -203,4 +203,24 @@ describe('smartAssign', () => {
         // Objects without prototype can not be copied
         expect(new2Old.a).toBe('ha ha')
     })
+
+    test('File type', () => {
+        const oldData = {
+
+        }
+        const newData = {
+            file: new File(['foo'], 'foo.txt', {
+                type: 'text/plain',
+            })
+        }
+        const ret = smartAssign(
+            {},
+            oldData,
+            newData,
+        )
+        expect(ret).toHaveProperty('file')
+        expect(ret.file).toBeInstanceOf(File)
+        expect(ret.file.name).toBe('foo.txt')
+        expect(ret.file.type).toBe('text/plain')
+    })
 });
