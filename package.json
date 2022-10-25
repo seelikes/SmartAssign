@@ -1,6 +1,6 @@
 {
   "name": "smart-assign",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "a smarter version of Object.assign",
   "main": "lib/index.js",
   "scripts": {
