@@ -113,6 +113,30 @@ describe('smartAssign', () => {
         expect(a.ar[2]).toBe('3456');
     });
 
+    test('Array item delete assign', () => {
+        let a = smartAssign(
+            {},
+            {
+                ar: [
+                    1,
+                    2,
+                    3,
+                ]
+            },
+            {
+                ar: [
+                    1,
+                    3,
+                ],
+            }
+        )
+        console.log(a)
+        expect(a.ar).toBeInstanceOf(Array)
+        expect(a.ar).toHaveLength(2)
+        expect(a.ar[0]).toBe(1)
+        expect(a.ar[1]).toBe(3)
+    })
+
     test('naked array assign to empty array', () => {
         let a = smartAssign(
             [],
