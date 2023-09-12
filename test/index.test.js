@@ -158,6 +158,23 @@ describe('smartAssign', () => {
         expect(a).toHaveProperty('a', 'a')
     })
 
+    test('undefined assign to property', () => {
+        let a = smartAssign(
+            {},
+            {
+                a: 1,
+                b: 2,
+            },
+            {
+                a: undefined,
+                b: undefined,
+            }
+        )
+        console.log(a)
+        expect(a).toHaveProperty('a', undefined)
+        expect(a).toHaveProperty('b', undefined)
+    })
+
     test('date assign', () => {
         const oldDate = new Date()
         let a = smartAssign(
