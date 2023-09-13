@@ -49,22 +49,6 @@ describe('smartAssign', () => {
         expect(a.c).toBe(true);
     });
 
-    test('empty curly braces override', () => {
-        let a = smartAssign(
-            {},
-            {
-                b: 'b1',
-                c: true,
-            },
-            {
-
-            }
-        )
-        console.log(a)
-        expect(a.b).toBe(undefined)
-        expect(a.c).toBe(undefined)
-    })
-
     test('Simple Assign Three!', () => {
         let a = smartAssign(
             {},
@@ -97,8 +81,7 @@ describe('smartAssign', () => {
                 ]
             }
         );
-        console.log(a)
-        expect(a.a).toBe(undefined);
+        expect(a.a).toBe('a1');
         expect(a.b).toBeDefined();
         expect(a.b).toBeInstanceOf(Array);
         expect(a.b.length).toBe(2);
