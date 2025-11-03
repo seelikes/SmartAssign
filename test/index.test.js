@@ -276,5 +276,8 @@ describe('smartAssign', () => {
             newArr,
         )
         console.log('ret: ', ret)
+        expect(ret).toBeInstanceOf(Array)
+        expect(ret).toHaveLength(1)
+        expect(ret[0]).toHaveProperty('a', 'a')
     })
 });
