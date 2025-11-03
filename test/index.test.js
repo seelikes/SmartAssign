@@ -264,4 +264,17 @@ describe('smartAssign', () => {
         expect(ret.file.name).toBe('foo.txt')
         expect(ret.file.type).toBe('text/plain')
     })
+
+    test('non const Result accept Array assign to Array', () => {
+        const newArr = [
+            {
+                a: 'a',
+            }
+        ]
+        let ret = smartAssign(
+            [],
+            newArr,
+        )
+        console.log('ret: ', ret)
+    })
 });
